@@ -1,0 +1,50 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+  <div id="page-container">
+    <div id="content-wrap">
+      <h1>Search for movies</h1>
+<form method="POST" action="/search">
+    Enter keywords:<br>
+    <input type="text" name="keywords">
+    
+    <input type="submit" value="Submit">
+</form>
+<h2>You searched for '<%-key%>'</h2>
+<div class="movies list">
+    <% if (movies.length > 0) { %>
+      <% movies.forEach((movie) => { %>
+
+        
+        <ul>
+          <li>
+            <h3><%= movie._source.title %></h3>
+            <%= movie._source.rating%><br>
+            <%= movie._source.release%><br>
+
+            <%if(movie._source.summary.split('.')[1] == ''){%>
+
+              <%= movie._source.summary.split('.')[3].split('Read all')[1] + '.';%><br>
+
+            <%} else {%>
+
+              <%= movie._source.summary.split('.')[0] + '.';%><br>
+              
+            <%}%>
+            <!-- <%= movie._source.summary%><br> -->
+        </ul>
+      <% }) %>
+    <% } else { %>
+      <p>No movies found...</p>
+    <% } %>
+</div>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+  </div>
+  
+  
+  
+</body>
+</html>

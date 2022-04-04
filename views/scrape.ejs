@@ -1,0 +1,21 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <h1>Enter URL to scrape</h1>
+<form method="POST" action="/scrape">
+    Enter a URL from the IMDB website:<br>
+    <input type="text" name="scrapeurl">
+    <input type="submit" value="Submit">
+</form>
+      </div>
+      <%- include("./partials/footer.ejs") %>
+    </div>
+  
+    
+  
+</body>
+</html>

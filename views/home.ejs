@@ -1,0 +1,26 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="about content">
+          <h2>About Us</h2>
+          <p>Scrape and Search, easy to use</p>
+          <p>
+            Click on <a href="/scrape">Scrape</a> to scrape an IMDB page. Enter a valid URL you want scraped.
+            This will scrape the page for movie title, rating, release year, and the summary. 
+            Results will then be indexed with a cloud elasticsearch service, provided the movie details don't already exist in it.
+          </p>
+          <p>
+            Click on <a href="/search">Search</a> to run search queries on the elasticsearch database. 
+            This will not access any IMDB pages, only return search results from the existing list of movies indexed in elasticsearch.
+          </p>
+      </div>
+      <br>
+      </div>
+      <%- include("./partials/footer.ejs") %>
+    </div>
+    
+</body>
+</html>

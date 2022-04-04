@@ -1,0 +1,46 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+  <div id="page-container">
+    <div id="content-wrap">
+      <h1>Enter URL to scrape</h1>
+      <form method="POST" action="/scrape">
+          Enter URL:<br>
+          <input type="text" name="scrapeurl">
+          
+          <input type="submit" value="Submit">
+      </form>
+      <h2>Result for URL: '<%-url%>'</h2>
+      <div class="movie found">
+          <% if (movie[0].title){ %>
+            <ul>
+              <li><a  class="single", href="<%- url%>">
+                <h3><%= movie[0].title %></h3>
+                <%= movie[0].rating%><br>
+                <%= movie[0].release%><br>
+                <%if(movie[0].summary.split('.')[1] == ''){%>
+
+                  <%= movie[0].summary.split('.')[3].split('Read all')[1] + '.';%><br>
+    
+                <%} else {%>
+    
+                  <%= movie[0].summary.split('.')[0] + '.';%><br>
+                  
+                <%}%>
+                </a>
+            </ul>
+              
+          <% } else { %>
+            <p>No movie found for the URL...</p>
+          <% } %>
+    </div>
+  </div>
+  <%- include("./partials/footer.ejs") %>
+  </div>
+
+  
+  
+</body>
+</html>
