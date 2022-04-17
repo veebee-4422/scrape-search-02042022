@@ -33,10 +33,23 @@ function elasticSearch(key){
         const result = await elasticClient.search({
             "index": "index_v4",
             "query": {
-                "query_string" : {
-                  "query": `*${key}*`, 
-                  "fields": [ "title^5", "summary", "rating", "release^5" ],
-                  "fuzziness": "AUTO"
+                "bool":{
+                    "should":[
+                        {
+                            "query_string" : {
+                                "query": `*${key}*`, 
+                                "fields": [ "title^5", "summary", "rating", "release^5" ],
+                                "fuzziness": "AUTO"
+                              }
+                        },
+                        {
+                            "query_string" : {
+                                "query": `${key}~`, 
+                                "fields": [ "title^5", "summary", "rating", "release^5" ],
+                                "fuzziness": "AUTO"
+                              }
+                        }
+                    ]
                 }
               }
         })
