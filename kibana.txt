@@ -1,0 +1,30 @@
+PUT index_v4
+
+
+PUT /index_v4/_mapping
+{
+  "properties": {
+    "rating": {
+      "type": "text"
+    },
+    "release": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "summary": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
