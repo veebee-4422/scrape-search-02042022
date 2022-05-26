@@ -21,11 +21,11 @@ function scrape(url){
             let $ = cheerio.load(response);
             let title = $('div[class="sc-94726ce4-0 cMYixt"]>div>h1').text();
             let rating = $('div[class="sc-f6306ea-0 cNGXvE rating-bar__base-button"]>a').text().split('/')[0];
-            let summary = $('div[class="sc-16ede01-8 hXeKyz sc-10602b09-11 cNJBaT"]>p').text();
+            // let summary = $('div[class="sc-16ede01-9 bbiYSi sc-910a7330-11 GYbFb"]>div[class="sc-16ede01-7 hrgVKw"]>span[class="sc-16ede01-0 fMPjMP"]').text();
             let release = $('div[class="sc-94726ce4-3 eSKKHi"]').text().substring(0,4);
             
             imdb.push({
-                title, rating, summary, release
+                title, rating, release
             });
             if(!imdb[0].title){
                 // throw new Error('No movie found')

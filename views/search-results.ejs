@@ -23,17 +23,6 @@
             <h3><%= movie._source.title %></h3>
             <%= movie._source.rating%><br>
             <%= movie._source.release%><br>
-
-            <%if(movie._source.summary.split('.')[1] == ''){%>
-
-              <%= movie._source.summary.split('.')[3].split('Read all')[1] + '.';%><br>
-
-            <%} else {%>
-
-              <%= movie._source.summary.split('.')[0] + '.';%><br>
-              
-            <%}%>
-            <!-- <%= movie._source.summary%><br> -->
         </ul>
       <% }) %>
     <% } else { %>

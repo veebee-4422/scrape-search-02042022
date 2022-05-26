@@ -3,11 +3,11 @@ require('dotenv').config();
 
 const elasticClient = new elasticsearch.Client({
     cloud: {
-        id: process.env.CLOUDID
+        id: process.env.CLOUDID2
     },
     auth: {
         username: process.env.UNAME,
-        password: process.env.PASSWORD
+        password: process.env.PASSWORD2
     }
 });
 
